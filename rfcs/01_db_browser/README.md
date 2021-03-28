@@ -71,3 +71,6 @@ The steps involved in implementing such an architecture are —
 2. Build a "connector" for Monaco on the frontend that can talk to the LSP service via a suitable protocol like WebSockets.
 
     Prior art — [Monaco language client](https://github.com/TypeFox/monaco-languageclient#monaco-language-client), a TypeScript project that makes it easy to connect a Monaco instance to a backend LSP service.
+
+![Monaco + Hasura LSP architecture](monaco_lsp_architecture.png)
+<!-- https://swimlanes.io/d/i_Bcaxe-2 -->
