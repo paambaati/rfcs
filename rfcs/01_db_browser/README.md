@@ -30,3 +30,18 @@ The goal is to try to scale this for newer future databases and have type-safety
 For Hasura's offerings to benefit more users and capture an even bigger market, it is imperative to support more databases.
 
 As no two databases are alike, building a data querying experience that works equally well for all databases becomes a challenge. The below proposals attempt to offer some longer-term solutions.
+
+## Proposals
+
+### 1. Free-form query editor
+
+The current experience of 3 input fields (column, operation and value) for executing queries would not scale well in a few cases —
+
+1. When Hasura starts to support more databases; especially graph, KV or columnar databases.
+2. When the user wishes to query spatial fields (like [GIS](https://postgis.net)) or composite fields (like the [`json` type in PostgreSQL](https://www.postgresql.org/docs/10/datatype-json.html)).
+
+Other solutions that let users query databases and view results instantly, like [Redash](https://redash.io/) and [Metabase](https://www.metabase.com/), default to a free-form query editor so that it gives more power & flexibility to users and is easier to support multiple databases.
+
+Redash             |  Metabase
+|-----------------------------|------------------------------------|
+![Redash query editor](redash_query_editor.png)  |  ![Metabase query editor](metabase_query_editor.png)
