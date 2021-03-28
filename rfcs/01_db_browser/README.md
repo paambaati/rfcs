@@ -96,3 +96,12 @@ SELECT * FROM books WHERE isbn = true;
 In this proposal, limiting the number of rows is left up to the user — they can use a `LIMIT` clause if they'd like. Otherwise, the table will display the total number of pages in the "Pages" field, using which the user can navigate to the page of their choice, with the backend API handling pagination in addition to the raw query.
 
 Sorting is done client-side and per-page.
+
+#### **Pros & cons**
+
+| **Pros** | **Cons** |
+|-|-|
+| Much richer querying experience for users. | Building and maintaining an LSP implementation is arguably more technical work, and might be more challenging for the backend engineering team. |
+| Removes almost all frontend work in introducing support for a new database (even new types like KV stores or graph DBs).  | More moving parts; now there's 1 extra service (or possibly more if we decide to build one for each DB) to deploy, monitor, troubleshoot and scale **unless** the LSP can be WASM-ified and delivered on the frontend. |
+| If we decide to build or contribute to an LSP implementation in the open, we stand to gain contributions from the community. | _Maybe_ a regression in user-experience for users that prefer the existing simpler 3-input-fields querying experience. |
+
