@@ -80,3 +80,13 @@ It might also be worth exploring the possibility of building the LSP into a [WAS
 
  1. Not needing the LSP as an additionally running service.
  2. Making it possible to build an Electron-based desktop app, if we have to in the future.
+
+#### **Type safety**
+
+Type safety in this proposal is provided by the LSP. For example, if the user has entered —
+
+```sql
+SELECT * FROM books WHERE isbn = true;
+```
+
+`isbn` is a string type, while the value given is a boolean. In this cause, LSP can [validate the query and provide an error](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide#adding-a-simple-validation) to Monaco to underline the token "true" with a red squiggle underneath it, and provide a useful hint that the type isn't matching.
