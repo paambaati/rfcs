@@ -23,3 +23,10 @@ We also let users to filter their data by various operators (depending on the ty
 
 The goal is to try to scale this for newer future databases and have type-safety, while still maintaining all the querying capabilities.
 
+## Motivation
+
+[Engineers are building new databases everyday](https://www.infoworld.com/article/3563548/do-we-need-so-many-databases.html), thanks to newer high-performance languages, cheaper data storage costs, more domain-specific storage & retrieval charateristics and an increased proliferation of [NIH syndrome](https://en.wikipedia.org/wiki/Not_invented_here).
+
+For Hasura's offerings to benefit more users and capture an even bigger market, it is imperative to support more databases.
+
+As no two databases are alike, building a data querying experience that works equally well for all databases becomes a challenge. The below proposals attempt to offer some longer-term solutions.
