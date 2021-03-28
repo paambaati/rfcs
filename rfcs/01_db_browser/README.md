@@ -90,3 +90,9 @@ SELECT * FROM books WHERE isbn = true;
 ```
 
 `isbn` is a string type, while the value given is a boolean. In this cause, LSP can [validate the query and provide an error](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide#adding-a-simple-validation) to Monaco to underline the token "true" with a red squiggle underneath it, and provide a useful hint that the type isn't matching.
+
+#### **Pagination & sorting**
+
+In this proposal, limiting the number of rows is left up to the user — they can use a `LIMIT` clause if they'd like. Otherwise, the table will display the total number of pages in the "Pages" field, using which the user can navigate to the page of their choice, with the backend API handling pagination in addition to the raw query.
+
+Sorting is done client-side and per-page.
