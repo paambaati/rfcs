@@ -75,3 +75,8 @@ The steps involved in implementing such an architecture are —
 
 ![Monaco + Hasura LSP architecture](monaco_lsp_architecture.png)
 <!-- https://swimlanes.io/d/i_Bcaxe-2 -->
+
+It might also be worth exploring the possibility of building the LSP into a [WASM](https://webassembly.org/) binary so that it can be made to work directly on the browser, and using the existing Hasura DB APIs to fetch catalog/schema information. This has the added advantages of —
+
+ 1. Not needing the LSP as an additionally running service.
+ 2. Making it possible to build an Electron-based desktop app, if we have to in the future.
