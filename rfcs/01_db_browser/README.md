@@ -45,3 +45,11 @@ Other solutions that let users query databases and view results instantly, like 
 Redash             |  Metabase
 |-----------------------------|------------------------------------|
 ![Redash query editor](redash_query_editor.png)  |  ![Metabase query editor](metabase_query_editor.png)
+
+#### **Implementation**
+
+This implementation offers an even more powerful query editing experience than the examples linked above.
+
+We use [Microsoft's Monaco Editor](https://microsoft.github.io/monaco-editor/) as the centerpiece of the query editing experience. It is the core text editing engine powering the very popular VSCode, and offers rich code syntax highlighting, hints, and autocomplete.
+
+The Monaco editor can be provided with rich context-aware autocomplete via a custom [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) service. This LSP service will connect to the database the user has selected, pick up query-specific schema information and serve it to the frontend editor.
