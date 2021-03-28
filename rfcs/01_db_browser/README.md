@@ -53,3 +53,21 @@ This implementation offers an even more powerful query editing experience than t
 We use [Microsoft's Monaco Editor](https://microsoft.github.io/monaco-editor/) as the centerpiece of the query editing experience. It is the core text editing engine powering the very popular VSCode, and offers rich code syntax highlighting, hints, and autocomplete.
 
 The Monaco editor can be provided with rich context-aware autocomplete via a custom [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) service. This LSP service will connect to the database the user has selected, pick up query-specific schema information and serve it to the frontend editor.
+
+For example, say the user has selected the table `books` from the `library` database, and say the user begins to type this query —
+
+```sql
+SELECT 
+```
+
+The LSP service will query the schema for the `books` table and offer all columns from that table as options, which can be used by Monaco as suggestions.
+
+The steps involved in implementing such an architecture are —
+
+1. Build an implementation of the LSP for the databases that Hasura supports.
+
+   Prior art — [`sqls`](https://github.com/lighttiger2505/sqls), a Go-based implementation of the LSP that supports PostgreSQL, MySQL and SQLite3.
+
+2. Build a "connector" for Monaco on the frontend that can talk to the LSP service via a suitable protocol like WebSockets.
+
+    Prior art — [Monaco language client](https://github.com/TypeFox/monaco-languageclient#monaco-language-client), a TypeScript project that makes it easy to connect a Monaco instance to a backend LSP service.
