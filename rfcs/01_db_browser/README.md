@@ -18,8 +18,9 @@ In the console, we allow customers to browse the data in the databases they've c
 
 We also let users to filter their data by various operators (depending on the type of the database). Users can also sort the data by column ascending or descending.
 
-![Hasura GraphQL Engine Data browser](hasura_graphql_engine_1.png)
-![Hasura GraphQL Engine Data browser](hasura_graphql_engine_2.png)
+&nbsp;             |  &nbsp;
+|-----------------------------|------------------------------------|
+![Hasura GraphQL Engine Data browser](hasura_graphql_engine_1.png)  |  ![Hasura GraphQL Engine Data browser](hasura_graphql_engine_2.png)
 
 The goal is to try to scale this for newer future databases and have type-safety, while still maintaining all the querying capabilities.
 
