@@ -5,3 +5,21 @@ The Hasura GraphQL engine connects to different kinds of databases like MySQL, P
 The problem that this RFC tries to address is (emphasis mine) —
 
 > How to do it in the best way so that it'll be scalable for **different databases** and will cover all of our functionalities (filter, sort), how can we have **type safety** if we don't have any information about schemas and tables in build time? 
+
+## Background
+
+The Hasura GraphQL Engine connects to customers' databases, and with the recent Hasura 2.0 release a single Hasura GraphQL Engine might be connected to multiple different databases and these databases might be different types (PostgreSQL, MySQL, MS Server, etc.)
+
+In the console, we allow customers to browse the data in the databases they've connected to Hasura. The Browse Rows tab (see images below) allows them to view the data from a particular table in a particular database. We have information about column names, column types and other table details only in runtime, and the data might be stored in different types of databases. There are two kind of APIs that we can use:
+
+- Raw SQL API — we can send any SQL query to the backend that will be executed on a particular database.
+
+- GraphQL API — generated for all the tables.
+
+We also let users to filter their data by various operators (depending on the type of the database). Users can also sort the data by column ascending or descending.
+
+![Hasura GraphQL Engine Data browser](hasura_graphql_engine_1.png)
+![Hasura GraphQL Engine Data browser](hasura_graphql_engine_2.png)
+
+The goal is to try to scale this for newer future databases and have type-safety, while still maintaining all the querying capabilities.
+
